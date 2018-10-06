@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Estado Academico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div>
+        <header><h1>Crear Materia</h1></header>
+    </div>
+
+    <div>
+        <ul>
+            <li><a href="estado.html">Estado</a></li>
+            <li><a href="materia.html">Materia</a></li>
+            <li><a href="borrar.html">Borrar</a></li>
+        </ul>
+    </div>
+
+    <div id="pagina">
+        <form id="formu" action="" method="GET">
+            <div id="mat">
+                <label for="materia">* Materia:</label>
+                <input type="text" id="materia" name="user_materia" />
+            </div>
+            <br>
+            <div id="an">
+                <label for="anio">* Año</label>
+                <select name="anio">
+                    <optgroup label="Primer Año">
+                        <option value="analisis">Analisis</option>
+                        <option value="fisica">Fisica</option>
+                        <option value="algoritmos">Algoritmos y Estructura de datos</option>
+                        <option value="arquitectura">Arquitectura de Computadoras</option>
+                    </optgroup>
+                    <optgroup label="Segundo Año">
+                        <option value="sintaxis">Sintaxis y Semantica del Lenguaje</option>
+                    </optgroup>
+                    <optgroup label="Tercer Año">
+                        <option value="disenio">Diseño de Sistemas</option>
+                    </optgroup>
+                    <optgroup label="Cuarto Año">
+                        <option value="administracion">Administracion de Recursos</option>
+                    </optgroup>
+                    <optgroup label="Quinto Año">
+                        <option value="proyecto">Proyecto</option>
+                    </optgroup>
+                    
+                </select>
+            </div>
+            <br>
+            <div id="not">
+                <label for="nota">* Nota</label>
+                <input type="text" id="nota" name="user_nota" />
+            </div>
+            <br>
+            <div id="promo">
+                <label for="promocion">* Promocion:</label>
+                <input type="radio" name="user_promo" value="1" checked>Si
+                <input type="radio" name="user_promo" value="2">No
+            </div>
+            <br>
+            <div>
+                <button type="reset" id="recargar">Recargar</button>
+                <input type="submit" value="Submit" onclick='document.getElementById("pagina").innerHTML = "Se cargo con exito"'>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
