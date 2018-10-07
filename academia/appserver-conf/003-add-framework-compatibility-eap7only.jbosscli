@@ -1,0 +1,1 @@
+/system-property=catalina.home:add(value=${jboss.server.base.dir})

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	OSDE Framework 2.0
+	Aplicacion creada a partir de archetype multiple proyectos--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>ar.com.osde</groupId>
+		<artifactId>osde-framework-application-root</artifactId>
+		<version>2.3.2</version>
+	</parent>
+
+	<packaging>pom</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ar.com.osde</groupId>
+	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>academia</artifactId>
+	<name>academia</name>
+	
+	<properties>
+		<osde.frenteNegocio>sustentabilidad</osde.frenteNegocio>
+		<osde.proveedorDesarrollo>CONSULTORA</osde.proveedorDesarrollo>
+	</properties>
+	
+	<scm>
+		<connection>
+			scm:svn:http://repositorio.osde.ar/academia/trunk/
+		</connection>
+		<developerConnection>
+			scm:svn:http://repositorio.osde.ar/academia/trunk/
+		</developerConnection>
+		<url>
+			http://repositorio.osde.ar/academia/trunk/
+		</url>
+	</scm>
+	
+	<build>
+	</build>
+	
+	<developers>
+		<!-- Estos datos son ingresados en la instantacion del proyecto -->	
+		<developer>
+			<email>sala</email>
+			<name>nian</name>
+			<organization>sustentabilidad</organization>
+		</developer>
+	</developers>
+	
+	<ciManagement>
+		<system>jenkins</system>
+		<url>http://ic.osde.ar/jenkins/</url>
+		<notifiers>
+			<notifier>
+				<type>mail</type>
+				<sendOnError>true</sendOnError>
+				<sendOnFailure>true</sendOnFailure>
+				<sendOnSuccess>false</sendOnSuccess>
+				<sendOnWarning>false</sendOnWarning>
+				<address>notreply@osde.com.ar</address>
+				<configuration>
+					<address>notreply@osde.com.ar</address>
+				</configuration>
+			</notifier>
+		</notifiers>
+	</ciManagement>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>ar.com.osde.framework</groupId>
+				<artifactId>osde-framework</artifactId>
+				<version>2.3.2</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+  <modules>
+    <module>academia-frontend</module>
+    <module>academia-services</module>
+    <module>academia-entities</module>
+    <module>academia-backend</module>
+  </modules>
+</project>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Aplicación prototype para pruebas de concepto de framework 2.0 OSDE -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+				http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<description>Configuracion de seguridad (estandar tomando como base al compoenente de seguridad) </description>
+
+	<security:http pattern="/styles**" security="none"/>
+	<security:http pattern="/js**" security="none"/>
+	<security:http pattern="/images**" security="none"/>
+
+	<security:http auto-config="false" entry-point-ref="osde.framework.security.entry.point" access-decision-manager-ref="osde.framework.security.dessitionManager">
+		
+		
+		<security:intercept-url pattern="/invoice/**" access="AAAAA" /> 
+		<security:intercept-url pattern="/**" access="AAAAA" />
+		
+		<!-- Mantener estos filtros 3 al final de la lista -->
+		<security:intercept-url pattern="/index.jsp" access="AAAAA" />
+        <security:intercept-url pattern="/*.do" access="AAAAA" />
+        <security:intercept-url pattern="/**/*.do" access="AAAAA" />		
+		
+		<security:logout logout-url="/logout.do" invalidate-session="true" />
+		<!-- Filtro de traza -->
+		<security:custom-filter before="FIRST" ref="osde.framework.traceid.filter"/>
+		<!--Filtro de seguridad  -->
+		<security:custom-filter position="FORM_LOGIN_FILTER" ref="osde.framework.authentication.filter"/>
+		<!--Handler para manejar los errores del ExceptionFilterTranslation  -->
+		<security:access-denied-handler ref="osde.framework.security.authentication.failure.handler"/>
+	</security:http>
+
+</beans>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<package name="hospital" namespace="/hospital" extends="default">
+		
+		<interceptors>
+			<interceptor-stack name="socioDefaultStack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="validation.includeMethods">save,update</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="socioDefaultStack" />
+	
+		<action name="SocioAction!*" method="{1}" class="socio.web.action">
+			<result name="success">/pages/hospital/Socio.jsp</result>
+			<result name="list">/pages/hospital/SocioList.jsp</result>
+		</action>
+		
+	</package>
+</struts>

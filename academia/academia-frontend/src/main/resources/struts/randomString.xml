@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Template de configuracion general para struts2 -->
+<struts>
+	<package name="random" extends="default" namespace="/random/ajax">
+		
+		<!-- Inicio configuracion para usar multi sessiones -->
+		
+		<interceptors>
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="basicStack"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="defaultStack"/>
+		
+		<!-- Fin configuracion para usar multi sessiones -->
+		
+		<action name="randomAction" class="random.web.action">
+			<result>/pages/random/ajax/form.jsp</result>
+		</action>
+		
+		<!-- 
+		<action name="list" class="random.web.action" method="refresh" >
+			<result>/pages/random/list.jsp</result>
+		</action>
+		
+		<action name="doInContext" class="random.web.action" method="doInContext" >
+			<result>/pages/random/list.jsp</result>
+		</action>
+		
+		<action name="doInSession" class="random.web.action" method="doInSession" >
+			<result>/pages/random/list.jsp</result>
+		</action>
+		 -->
+	</package>
+</struts>

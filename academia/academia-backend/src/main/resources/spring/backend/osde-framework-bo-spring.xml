@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--Aplicación prototype para pruebas de concepto de framework 2.0 OSDE -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	<description>Contexto para la definicion de Business Objects</description>
+	
+	
+	<!-- ************ DEFINICION DE BO CUSTOM DE LA APLICACION **********  -->
+	
+	<!-- BO de ejemplo transaccional generico -->
+	<bean id="invoice.tx.bo" class="ar.com.osde.framework.business.crud.GenericCRUDBOImpl">
+		<property name="genericDao" ref="invoice.hibernate.dao" />
+	</bean>
+	
+	<bean id="categoria.tx.bo" class="ar.com.osde.framework.business.crud.GenericCRUDBOImpl">
+		<property name="genericDao" ref="categoria.hibernate.dao" />
+	</bean>
+	
+	<bean id="autor.tx.bo" class="ar.com.osde.framework.business.crud.GenericCRUDBOImpl">
+		<property name="genericDao" ref="autor.hibernate.dao" />
+	</bean>
+	
+	<bean id="libro.tx.bo" class="ar.com.stk.backend.bo.impl.LibroBOImpl">
+		<property name="genericDao" ref="libro.hibernate.dao" />
+		<property name="autorBO" ref="autor.tx.bo"/>
+		<property name="categoriaBO" ref="categoria.tx.bo"/>
+		<property name="assembler" ref="osde.framework.services.assembler" />
+	</bean>
+	
+	
+	
+	
+	
+	<bean id="socio.tx.bo" class="ar.com.osde.framework.business.crud.GenericCRUDBOImpl">
+		<property name="genericDao" ref="socio.hibernate.dao" />
+	</bean>
+	
+	
+	
+	
+	
+	<!-- BO de ejemplo para el manejo de cache -->
+	<bean id="cache.demo.bo" class="ar.com.stk.backend.bo.impl.DemoCacheBOImpl">
+		<property name="exampleBO" ref="invoice.tx.bo"/>
+		<property name="cache">
+		<!-- CAche de ejemplo, ver la documentacion para todas las propiedades que se pueden configurar -->
+			<bean class="ar.com.osde.framework.spring.cache.ehcache.EhCacheFrameworFactoryBean">
+				<property name="cacheName" value="CACHE_INVOICE_EXAMPLE"/>
+				<!-- Utilizo el cache manager definido en la conf default del comp spring -->
+				<property name="cacheManager" ref="osde.framework.cache.manager.ehchace"/>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	
+</beans>

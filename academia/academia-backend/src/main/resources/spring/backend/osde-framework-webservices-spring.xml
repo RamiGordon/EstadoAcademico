@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Aplicación prototype para pruebas de concepto de framework 2.0 OSDE -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+        		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+        		
+	<description>Contexto para la definicion de Web Services</description>
+	
+	<!-- Load CXF modules from cxf.jar -->
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+    
+    <!-- Webservices del CRUD Genérico -->
+	<import resource="classpath*:ar/com/osde/framework/crud/backend/spring/remote/osde-framework-crud-backend-*-spring.xml"/>
+	
+	<cxf:bus>
+	 	<cxf:features>
+		<!--  <cxf:logging/>  -->
+	 	</cxf:features>
+	</cxf:bus>
+
+	<!-- Endpoint con annotations de JAX-WS  -->
+	
+	<jaxws:endpoint id="invoiceCRUDService"
+		address="/InvoiceCRUDService">
+		<jaxws:implementor>
+			<bean class="ar.com.stk.backend.services.impl.InvoiceCRUDServiceImpl">
+				<property name="assembler" ref="osde.framework.services.assembler" />
+				<property name="genericBO" ref="invoice.tx.bo" />
+			</bean>
+		</jaxws:implementor>
+		<jaxws:inInterceptors>
+			<bean class="ar.com.osde.framework.services.headerinfo.interceptor.SoapHeaderInfoInInterceptor"/>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<jaxws:endpoint id="invoiceService"
+		address="/InvoiceService">
+		<jaxws:implementor>
+			<bean class="ar.com.stk.backend.services.impl.InvoiceServiceImpl">
+				<property name="assembler" ref="osde.framework.services.assembler" />
+				<property name="invoiceBO" ref="invoice.tx.bo" />
+			</bean>
+		</jaxws:implementor>
+		<jaxws:inInterceptors>
+			<bean class="ar.com.osde.framework.services.headerinfo.interceptor.SoapHeaderInfoInInterceptor"/>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<jaxws:endpoint id="categoriaService"
+		address="/CategoriaAdminService">
+		<jaxws:implementor>
+			<bean class="ar.com.stk.backend.services.impl.CategoriaAdminServiceImpl">
+				<property name="categoriaBO" ref="categoria.tx.bo" />
+				<property name="assembler" ref="osde.framework.services.assembler" />
+			</bean>
+		</jaxws:implementor>
+		<jaxws:inInterceptors>
+			<bean class="ar.com.osde.framework.services.headerinfo.interceptor.SoapHeaderInfoInInterceptor"/>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<jaxws:endpoint id="autorService"
+		address="/AutorAdminService">
+		<jaxws:implementor>
+			<bean class="ar.com.stk.backend.services.impl.AutorAdminServiceImpl">
+				<property name="autorBO" ref="autor.tx.bo" />
+				<property name="assembler" ref="osde.framework.services.assembler" />
+			</bean>
+		</jaxws:implementor>
+		<jaxws:inInterceptors>
+			<bean class="ar.com.osde.framework.services.headerinfo.interceptor.SoapHeaderInfoInInterceptor"/>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	<jaxws:endpoint id="libroService"
+		address="/LibroAdminService">
+		<jaxws:implementor>
+			<bean class="ar.com.stk.backend.services.impl.LibroAdminServiceImpl">
+				<property name="libroBO" ref="libro.tx.bo" />
+				<property name="assembler" ref="osde.framework.services.assembler" />
+			</bean>
+		</jaxws:implementor>
+		<jaxws:inInterceptors>
+			<bean class="ar.com.osde.framework.services.headerinfo.interceptor.SoapHeaderInfoInInterceptor"/>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+	
+	
+	
+	<jaxws:endpoint id="socioService"
+		address="/SocioAdminService">
+		<jaxws:implementor>
+			<bean class="ar.com.stk.backend.services.impl.SocioAdminServiceImpl">
+				<property name="socioBO" ref="socio.tx.bo" />
+				<property name="assembler" ref="osde.framework.services.assembler" />
+			</bean>
+		</jaxws:implementor>
+		<jaxws:inInterceptors>
+			<bean class="ar.com.osde.framework.services.headerinfo.interceptor.SoapHeaderInfoInInterceptor"/>
+		</jaxws:inInterceptors>
+	</jaxws:endpoint>
+	
+</beans>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Aplicación prototype para pruebas de concepto de framework 2.0 OSDE -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	<description>Contexto para la definicion de webservices</description>
+	
+	<bean id="invoice.crud.service" class="ar.com.osde.framework.spring.services.ServiceFactoryBean">
+		<property name="name" value="Invoice Admin Service"/>
+		<property name="urlHost" value="${osde.framework.webservices.urlHost}"/>
+		<property name="urlContext" value="/academia-backend/webservices/InvoiceCRUDService"/>
+		<property name="interfaceService" value="ar.com.stk.services.InvoiceCRUDService"/>
+	</bean>
+	
+	<!-- USO Recomendado por arquitectura. Con annotation y Fwk de Servicios con CXF. -->		
+	<bean id="invoice.service" class="ar.com.osde.framework.spring.services.ServiceFactoryBean">
+		<property name="name" value="Invoice Admin Service"/>
+		<property name="urlHost" value="${osde.framework.webservices.urlHost}"/>
+		<property name="urlContext" value="/academia-backend/webservices/InvoiceService"/>
+		<property name="interfaceService" value="ar.com.stk.services.InvoiceService"/>
+	</bean>
+	
+	<!-- USO Recomendado por arquitectura. Con annotation y Fwk de Servicios con CXF. -->		
+	<bean id="categoria.admin.service" class="ar.com.osde.framework.spring.services.ServiceFactoryBean">
+		<property name="name" value="Categoria Admin Service"/>
+		<property name="urlHost" value="${osde.framework.webservices.urlHost}"/>
+		<property name="urlContext" value="/academia-backend/webservices/CategoriaAdminService"/>
+		<property name="interfaceService" value="ar.com.stk.services.libreria.CategoriaAdminService"/>
+	</bean>
+	
+	<bean id="autor.admin.service" class="ar.com.osde.framework.spring.services.ServiceFactoryBean">
+		<property name="name" value="Autor Admin Service"/>
+		<property name="urlHost" value="${osde.framework.webservices.urlHost}"/>
+		<property name="urlContext" value="/academia-backend/webservices/AutorAdminService"/>
+		<property name="interfaceService" value="ar.com.stk.services.libreria.AutorAdminService"/>
+	</bean>
+	
+	<bean id="libro.admin.service" class="ar.com.osde.framework.spring.services.ServiceFactoryBean">
+		<property name="name" value="Libro Admin Service"/>
+		<property name="urlHost" value="${osde.framework.webservices.urlHost}"/>
+		<property name="urlContext" value="/academia-backend/webservices/LibroAdminService"/>
+		<property name="interfaceService" value="ar.com.stk.services.libreria.LibroAdminService"/>
+	</bean>
+	
+	<!-- definicion para el socio -->
+	 <bean id="socio.admin.service" class="ar.com.osde.framework.spring.services.ServiceFactoryBean">
+	  <property name="name" value="Socio Admin Service"/>
+	  <property name="urlHost" value="${osde.framework.webservices.urlHost}"/>
+		<property name="urlContext" value="/academia-backend/webservices/SocioAdminService"/>
+		<property name="interfaceService" value="ar.com.stk.services.hospital.SocioAdminService"/>
+	 </bean>
+</beans>

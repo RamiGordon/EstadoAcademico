@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="libreria" namespace="/libreria" extends="default">
+
+		<interceptors>
+			<interceptor-stack name="libreriaDefaultStack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="validation.includeMethods">save,update</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="libreriaDefaultStack" />
+
+		<action name="CategoriaAction!*" method="{1}" class="categoria.web.action">
+			<result name="success">/pages/libreria/Categoria.jsp</result>
+			<result name="list">/pages/libreria/CategoriaList.jsp</result>
+		</action>
+
+		<action name="AutorAction!*" method="{1}" class="autor.web.action">			
+			<result name="success">/pages/libreria/Autor.jsp</result>
+			<result name="list">/pages/libreria/AutorList.jsp</result>
+		</action>
+
+		<action name="LibroAction!*" method="{1}" class="libro.web.action">
+			<result name="input">/pages/libreria/Libro.jsp</result>
+			<result name="success">/pages/libreria/Libro.jsp</result>
+			<result name="list">/pages/libreria/LibroList.jsp</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity name="Libros">
+	<column name="Nombre" property="nombre"/>
+	<column name="Descripción" property="descripcion" />
+	<column name="Fecha de Edición" property="fechaEdicion" format-pattern="dd/MM/yyyy hh:mm"/>
+	<column name="Stock Mínimo" property="stockMinimo"/>
+	<column name="Precio" property="precio" format-pattern="¤#.00"/>
+	<column name="Categoría">		
+		<property name="categoria.descripcion" />
+		<property name="categoria.id"/>			
+	</column>
+</entity>

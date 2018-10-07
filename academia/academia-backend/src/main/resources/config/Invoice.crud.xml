@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<entity>
+	<name>Invoice</name>	
+	<clazz>ar.com.stk.entities.Invoice</clazz>
+	<description>name of Invoice</description>
+	<defaultOrder>name</defaultOrder>
+	<maxListElements>10</maxListElements>
+	<delete>phisic</delete>
+	<fields>
+		<primitiveField>
+			<name>Nombre</name>
+			<property>name</property> 
+			
+			<defaultFilter operator="Like" />
+			<columnPreference>
+				<orderable>true</orderable>
+				<index>1</index>
+			</columnPreference>
+			<filterPreference>
+				<index>1</index>
+			</filterPreference>
+			<editPreference>
+				<index>1</index>
+			</editPreference>			
+		</primitiveField>
+	</fields>
+</entity>

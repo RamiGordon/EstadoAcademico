@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<entity>
+	<name>Pais</name>
+	<clazz>ar.com.stk.common.entities.crud.Pais</clazz>
+	<description>descripcion de Pais</description>
+	<defaultOrder>nombre</defaultOrder>
+	<maxListElements>10</maxListElements>
+	<delete>phisic</delete>
+	<widthSize>750</widthSize>
+	<heightSize>600</heightSize>
+	<fields>
+		<primitiveField> 
+		
+			<name>Nombre</name>
+			<property>nombre</property>
+			<defaultFilter operator="Like"/>
+			<columnPreference>
+				<orderable>true</orderable>
+				<index>1</index>
+			</columnPreference>
+			<filterPreference>
+				<index>1</index>
+			</filterPreference>
+			<editPreference>
+				<index>1</index>
+			</editPreference>			
+		</primitiveField>
+		
+	</fields>
+</entity>

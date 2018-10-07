@@ -1,0 +1,54 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	<field name="libro.categoria.id">
+		<field-validator type="required">
+			<message>Debe ingresar la Categoria</message>
+		</field-validator>
+	</field>
+	
+	<field name="libro.nombre">
+		<field-validator type="requiredstring">
+			<message>Debe ingresar el Nombre del Libro</message>
+		</field-validator>
+	</field>
+
+	<field name="libro.descripcion">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Debe ingresar la Descripción del Libro</message>
+		</field-validator>
+	</field>
+
+	<field name="libro.isbn">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Debe ingresar el ISBN del Libro</message>
+		</field-validator>
+	</field>
+	<field name="libro.fechaEdicion">
+		<field-validator type="required">
+			<message>Debe ingresar la fecha de edición del Libro</message>
+		</field-validator>
+	</field>
+	<field name="libro.precio">
+		<field-validator type="required">
+			<message>Debe ingresar el precio del Libro</message>
+		</field-validator>
+		<field-validator type="double">
+			<param name="min">0</param>
+			<param name="max">999999999</param>
+			<message>El precio debe ser mayor a 0 y menor a 999999999</message>
+		</field-validator>
+	</field>
+	<field name="libro.stockMinimo">
+		<field-validator type="required">
+			<message>Debe ingresar el stock mínimo del Libro</message>
+		</field-validator>
+		<field-validator type="int">
+			<param name="min">0</param>
+			<param name="max">99999999</param>
+			<message>El stock mínimo debe ser mayor a 0 y menor a 99999999</message>
+		</field-validator>
+	</field>
+</validators>

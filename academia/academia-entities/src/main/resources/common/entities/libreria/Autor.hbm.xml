@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!--
+		Aplicación prototype para pruebas de concepto de framework 2.0 OSDE
+		GPI Argentina S.A.
+		Santiago Urrizola
+	-->	
+<hibernate-mapping package="ar.com.stk.common.entities.libreria">
+  <class name="Autor" table="AUTOR">
+  	<id name="id"  column="autor_id" unsaved-value="0" type="long">
+  		<generator class="native" ></generator>
+  	</id>
+	<property name="nombre" column="nombre" type="string" length="50" ></property>
+	<property name="apellido" column="apellido" type="string" length="50" ></property>
+	
+  </class>
+</hibernate-mapping>

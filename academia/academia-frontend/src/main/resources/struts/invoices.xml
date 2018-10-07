@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Template de configuracion general para struts2 -->
+<struts>
+	<package name="invoice" extends="default" namespace="/invoice">
+		<default-interceptor-ref name="crudStack" />
+		<action name="list" class="invoice.web.action" method="list" >
+			<result>/pages/invoice/list.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="listJson" class="invoice.web.action" method="list">
+			<interceptor-ref name="basicStack" />
+
+			<result type="json">
+				<param name="root">result</param>
+			 	<param name="noCache">true</param>
+			 	<param name="excludeProperties"> login.password, studentList.*\.sin </param>
+			</result>
+		</action>
+		<action name="edit" class="invoice.web.action" method="edit">
+			<result>/pages/invoice/edit.jsp</result>
+			<interceptor-ref name="params" />
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="save" class="invoice.web.action" method="save">
+			<result name="input">/pages/invoice/edit.jsp
+			</result>
+			<result type="chain">list</result>
+			<!--
+				<result type="chain">edit-${currentInvoice.id}</result>
+			-->
+		</action>
+		<action name="update" class="invoice.web.action" method="update">
+			<result name="input">/pages/invoice/edit.jsp
+			</result>
+			<result type="chain">list</result>
+		</action>
+		<action name="delete" class="invoice.web.action" method="delete">
+			<result name="error">/pages/invoice/edit.jsp
+			</result>
+			<result type="chain">list</result>
+		</action>
+	</package>
+</struts>

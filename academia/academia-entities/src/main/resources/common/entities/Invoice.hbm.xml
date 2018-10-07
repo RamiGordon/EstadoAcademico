@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!--
+		Aplicación prototype para pruebas de concepto de framework 2.0 OSDE
+	-->	
+<hibernate-mapping package="ar.com.stk.common.entities">
+  <class name="Invoice" table="INVOICE" lazy="false">
+  	<id name="id"  unsaved-value="0" type="long">
+  		<generator class="assigned" ></generator>
+  	</id>
+	<property name="name"  column="code" type="string" length="60" not-null="true" ></property>	
+	<property name="description" column="description" type="string" length="60" ></property>
+	<property name="total" column="total" type="big_decimal"></property>
+  </class>
+</hibernate-mapping>

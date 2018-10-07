@@ -1,0 +1,7 @@
+#Ejemplo de datasource para DB2 10, para otras bases consultar https://sites.google.com/a/osde.com.ar/gs-arquitecturaaplicaciones/contenido-operativo/guias/jboss-eap-6/jboss-eap-6---configuracion-de-base-de-datos
+
+:take-snapshot()
+/subsystem=datasources/jdbc-driver=db2:add(driver-module-name=com.ibm.db2jcc,module-slot=10.5fp5,driver-name=db2,driver-datasource-class-name=com.ibm.db2.jcc.DB2DataSource)
+/subsystem=datasources/data-source=AppDS:add(jndi-name="${datasource.jndi}",connection-url="${datasource.connection.url}",driver-name=db2,user-name=${datasource.username},password=${datasource.password},min-pool-size=2,max-pool-size=10,valid-connection-checker-class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ValidConnectionChecker",stale-connection-checker-class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2StaleConnectionChecker",exception-sorter-class-name="org.jboss.jca.adapters.jdbc.extensions.db2.DB2ExceptionSorter")
+/subsystem=datasources/data-source=AppDS:write-attribute(name=jta,value=false)
+/subsystem=datasources/data-source=AppDS:enable(persistent=true)

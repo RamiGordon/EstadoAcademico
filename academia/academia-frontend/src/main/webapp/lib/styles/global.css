@@ -1,0 +1,1173 @@
+#tituloAplicacion {
+	height:41px; 
+	width:193px; 
+	background:url(img/BgtituloAplicacion.gif) no-repeat top; 
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	color:#FFFFFF; font-size:13px; 
+	font-weight:bold;
+	text-align:center;
+	padding-top:11px;
+}
+
+/* TAGS HTML --------------------- */
+html, body
+{
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0 ;
+	border: none;
+	height: 100%;
+	background-color: #fff;
+}
+
+a
+{
+	outline: none;
+	color: #5086B5;
+	text-decoration: underline;		
+}
+a:hover{
+		color: #014783;
+}
+
+
+
+a.lnk
+{
+	outline: none;
+	color: #5086B5;
+	text-decoration: none;	
+}
+	
+a.lnk:hover{
+		color: #014783;
+}
+
+form
+{
+	margin: 0;
+	padding: 0;
+}
+
+form td
+{
+	vertical-align: top;
+}
+
+
+/* IDs --------------------------- */
+
+#estructura
+{
+	border-collapse: collapse;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	
+}
+#estructura #menu,
+#estructura #contenido,
+#estructura #tituloPosicion
+{
+	padding:0;
+	/*vertical-align: top;*/
+}
+#estructura thead td#top
+{
+	background: url(img/bg.jpg) repeat-x;
+	height: 76px;
+	padding:0;
+}
+#estructura #tituloSistema
+{
+	height: 55px;
+	width: 178px;
+}
+#estructura #menu
+{
+	width: 178px;
+}
+#estructura #contenido
+{
+	margin:0;
+	padding-right: 6px;
+}
+
+#estructura .separador_v_middle
+{
+	width:17px;
+	vertical-align: middle;
+	text-align: center;
+	background: url(img/gris.gif) center repeat-y ;
+}
+
+#estructura .separador_h_middle
+{
+	width:17px;
+	vertical-align: middle;
+	text-align: center;
+	background: url(img/gris.gif) center repeat-x ;
+}
+/* MENU */
+#menu ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 195px;
+}
+#menu ul ul
+{
+	display: none;
+}
+#menu ul.base
+{
+	background: url(img/menu/menu_fondo.png) repeat-y;
+	margin: 0px 0px 0px 6px; 
+	
+}
+#menu li.primero
+{
+	background: url(img/menu/menu_primero.png) no-repeat;
+}
+#menu li.primeroActivo
+{
+	background: url(img/menu/menu_primero_over.png) no-repeat;
+}
+#menu li.ultimo
+{
+	background: url(img/menu/menu_ultimo.png) no-repeat bottom;
+	height: 4px;
+}
+#menu li.ultimoActivo
+{
+	background: url(img/menu/menu_ultimo_over.png) no-repeat bottom;
+	height: 4px;
+}
+#menu li li
+{
+	background: url(img/menu/menu_fondo.png) repeat-y;
+}
+#menu li.top
+{
+	background: url(img/menu/menu_top.png) no-repeat;
+}
+
+#menu li.topActivo
+{
+	background: url(img/menu/menu_top_over.png) no-repeat;
+}
+* html #menu li
+{
+	height: 4px;
+}
+* html #menu li a
+{
+	height: 24px;
+}
+#menu li a/*este estilo fue modificado*/
+{
+	color: #014783;
+	display: block;
+	font-weight: bold;
+	line-height: 27px;
+	margin: 0;
+	padding-left: 12px;
+	text-decoration: none;
+}
+#menu li li a/*este estilo fue modificado*/
+{
+	font-weight: normal;
+	line-height: 27px;
+	padding-left:6px;
+	background-image: url(img/menu/menu_flecha1.png); 
+	background-repeat:no-repeat; 
+	background-position:left;
+	margin-left:12px; 
+
+}
+#menu li li li a/*este estilo fue modificado*/
+{
+	padding-left:6px;
+	background-image: url(img/menu/menu_flecha1.png); 
+	background-repeat:no-repeat; 
+	background-position:left; 
+	margin-left:19px;
+}
+
+
+#menu li.activo,
+#menu li.activo a
+{
+	background: url(img/menu/menu_activo.png) repeat;	
+	font-weight: bold;
+}
+
+
+/* Header */
+
+#tituloSistema
+{
+	padding: 0px 7px 0 5px;
+}
+#tituloSistema img
+{
+	margin: 0;
+}
+#tituloPosicion #ruta
+{
+	font-size: 11px;
+	line-height: 10px;
+	margin-left: 10px;
+}
+#tituloPosicion #ruta a
+{
+	color: #999;
+}
+#tituloPosicion h2
+{
+	color: #5086b5;
+	font-size: 24px;
+	line-height: 30px;
+	margin: 0 10px;
+}
+
+
+
+/* CLASSES ---------------------- */
+.appVersion
+{
+	font-size: 11px;
+	line-height: 10px;
+	color: #999;
+	text-align:right;
+	vertical-align:top;
+	padding-top:4px;
+	padding-right:7px;
+}
+
+.ayudaHeader
+{
+	text-align:right;
+	vertical-align:bottom;
+	padding-bottom:9px;
+	padding-right:7px;
+}
+
+.bloque
+{	
+	margin-bottom: 0px;	
+	position: relative;
+	top:-6px	
+}
+.bloque h3
+{
+	background: url(img/bloque/bloque_top.png) no-repeat;
+	color: #0097d0;
+	font-size: 14px;
+	margin: 0;
+}
+.bloque h3 span
+{
+	background: url(img/bloque/bloque_top.png) no-repeat right;
+	color: #0097d0;
+	display: block;
+	line-height: 18px;
+	margin-left: 10px;
+	padding: 10px 10px 10px 0;
+}
+.bloque h3 span a
+{
+	color: #0097d0;
+}
+.bloque h3 span a:hover
+{
+	color: #014783;
+}
+
+.bloque .pie
+{
+	background: url(img/bloque/bloque_pie.png) no-repeat left top;
+	height: 5px;
+	padding: 0;
+}
+.bloque .pie div
+{
+	background: url(img/bloque/bloque_pie.png) no-repeat right top;
+	height: 5px;
+	margin-left: 10px;
+	border:0px solid green;
+}
+.bloque .top
+{
+	background: url(img/bloque/bloque_top.png) no-repeat;
+	height: 18px;	
+ 	font-size: 18px;
+	margin: 0;
+	border:0;
+}
+.bloque .top div
+{
+	background: url(img/bloque/bloque_top.png) no-repeat top right;	
+	margin-left: 10px;
+	padding: 10px 10px 0 0;
+	font-size: 10px;
+	border:0px solid red;
+	height:10px;
+}
+
+.bloque .cuerpo
+{
+	background: #fbfbfb;
+	border: 1px solid #cecece;
+	border-width: 0 1px;
+	padding: 0 10px 0px 10px;
+}
+.bloque p
+{
+	margin: 0 10px;
+	padding: 5px 0;
+}
+
+.bloque .iconos {	
+	display: block;
+	padding-left: 10px;
+	position: absolute;
+	right: 10px;
+	text-decoration: none;
+	top: 13px;
+}
+.bloque .iconos img {
+	border:0px;
+	padding-right:3px;
+}
+
+
+
+.ancho200
+{
+	width: 200px;
+}
+
+.scrolling
+{
+  border: 1px solid #d1d5d6;
+  border-left-color: #576a6f;
+  border-top-color: #576a6f;
+  margin: 0px 5px;
+  padding: 0;
+  overflow: auto;
+  height: 300%;
+  width: 60%;
+  text-align: left;
+  float:inherit;
+}
+
+.fecha
+{
+	width: 65px;
+}
+.descarga
+{
+	background: url(img/iconos/default.png) no-repeat left center;
+	clear: left;
+	
+}
+/* Descarga / iconos*/
+.descarga a
+{
+	color: #5086B5;
+	display: block;
+	padding-left: 30px;
+	text-decoration: none;
+}
+
+.descarga a:hover
+{
+	color: #014783;
+}
+
+.descarga span
+{
+	font-size: 10px;
+	padding-left: 30px;
+}
+.despdf
+{
+	background-image: url(img/iconos/pdf.png);
+}
+.desdoc
+{
+	background-image: url(img/iconos/doc.png);
+}
+.desxls
+{
+	background-image: url(img/iconos/xls.png);
+}
+.deseps
+{
+	background-image: url(img/iconos/eps.png);
+}
+.desjpg
+{
+	background-image: url(img/iconos/jpg.png);
+}
+
+
+
+
+/* TABLAS -----------------------------*/
+
+table.datos
+{
+	background: url(img/tabla/tabla_fondo.png) repeat-x;
+	border-bottom: 1px solid #bebebe;
+	border-collapse: collapse;
+	margin: 0;
+	width: 100%;
+}
+
+table.datos th
+{
+	border-bottom: 1px solid #bebebe;
+	color: #576a6f;
+	font-size: 12px;
+	line-height: 25px;
+	padding: 0;
+	padding-right: 5px;
+	text-align: left;
+	white-space: nowrap;
+}
+
+table.datos th.ultimo
+{
+	background: url(img/tabla/tabla_der.png) no-repeat right top;
+}
+table.datos th.primero
+{
+	background: url(img/tabla/tabla_izq.png) no-repeat;
+}
+
+table.datos td
+{
+	border-bottom: 1px dotted #bebebe;
+	color: #333;
+	padding: 0px 8px 0px 0px;
+	vertical-align: middle;
+	height: 18px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+table.datos tr.subtitulo td/*agregue este estilo se usa para subtitulos en las tablas dentro de un td*/
+{
+     color: #0097d0;
+	 font-size: 12px;
+	 margin-left:10px;
+	 font-weight:bold;
+	 padding-bottom:0px;
+	 /*border-bottom: 1px #20C1FF dotted;*/
+	 padding:15px 0 0px 0;
+	 border-bottom:none;
+	 /*border-top:1px solid #D8D8D8;*/
+
+}
+table.datos td.alto
+{
+    padding:3px 0 3px 0;/*este estilo se usa para ganar altura dentro de una linea, para que las líneas de las tablas no queden tan pegadas*/
+}
+
+table.datos td input
+{
+	margin-right: 10px;
+}
+/**/
+.disabled
+{
+	background-color: #F5F5F5;
+	
+}
+
+table.datos tr.disabled td
+{
+	
+	color: #5F5F5F 
+}
+
+table.datos tr.disabled td input
+{
+	
+	margin-right: 10px;
+}
+
+/**/
+
+table.displayTagColumn
+{
+	width:99%;
+	border: 0px solid red;
+	white-space:nowrap;
+	table-layout: fixed;
+}
+table.displayTagColumn td
+{
+	border: 0px solid yellow;
+	empty-cells: show;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+
+
+/* columnas ordenables */
+th.sorted a, th.sortable a {
+	display: inline;
+	color: #576A6F;
+	font-size: 12px;
+	text-decoration: none;
+	background: url(img/tabla/arrow_off.png) no-repeat left center ;
+	padding-left: 15px;
+}
+
+th.order1 a {
+	background: url(img/tabla/arrow_up.png) no-repeat left center ;
+}
+
+th.order2 a {
+	background: url(img/tabla/arrow_down.png) no-repeat left center ;
+}
+
+
+/* PAGINADOR -------------------- */
+table.paginador
+{
+	margin-top: 10px;
+	position: relative;
+	width: 100%;
+}
+table.paginador td
+{
+	color: #333;
+	font-size: 11px;
+	text-align: center;
+	height: 20px;
+}
+table.paginador td.resultados
+{
+	text-align: left;
+	width: 200px;
+}
+table.paginador td.numero
+{
+	text-align: right;
+	width: 200px;
+}
+table.paginador td a
+{
+	color: #333;
+	text-decoration: none;
+}
+table.paginador td span.activo
+{
+	cursor:default;
+	color: #0097d0;
+	font-weight: bold;
+}
+table.paginador td img
+{
+	border: none;
+	top: 5px;
+}
+
+
+
+/* fin PAGINADOR -------------------- */
+
+table.formulario
+{   font-family: Arial;
+	font-size: 9pt; 
+	color:#666;
+	width: 100%;
+}
+table.formulario td
+{
+	height:24px;
+	padding: 0px 3px 0px 0px;
+}
+td.botones
+{
+	height: 40px;
+	text-align:right;
+	vertical-align: bottom;
+	padding-bottom: 10px;
+}
+
+td.botonesPopup
+{
+	text-align:right;
+	vertical-align: bottom;
+}
+
+table.formulario .label
+{
+	font-weight: bold;
+	text-align: right;
+	width: 40%;
+}
+
+
+/* Elementos de formulario ----------------------------------------------- */
+
+table.formulario
+{   font-family: Arial;
+	font-size: 9pt; 
+	color:#666;
+	width: 100%;
+}
+table.formulario td
+{
+	height:24px;
+	padding: 0px 3px 0px 0px;
+}
+td.botones
+{
+	height: 40px;
+	text-align:right;
+	vertical-align: bottom;
+	padding-bottom: 10px;
+}
+
+td.botonesPopup
+{
+	text-align:right;
+	vertical-align: bottom;
+}
+
+table.formulario .label
+{
+	font-weight: bold;
+	text-align: right;
+}
+/* Elementos table checkboxList ----------------------------------------*/
+table.checkboxList
+{   font-family: Arial;
+	font-size: 9pt; 
+	color:#666;
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+	margin: 0%;
+}
+table.checkboxList tr td
+{
+	height:1px;
+	width: 95%;
+	padding: 0px 0px 0px 0px;
+	margin: -5%;
+}
+
+.selected
+{
+	background: url(img/checklist/selected.png) repeat-x;
+	
+}
+
+
+table.checkboxList td input
+{
+	height:16px;
+	padding: -2px 0px 0px 0px;
+
+}
+
+table.checkboxList td label
+{
+	height:20px;
+	padding: -2px 0px 0px 0px;
+
+}
+
+
+td.botones
+{
+	height: 40px;
+	text-align:right;
+	vertical-align: bottom;
+	padding-bottom: 10px;
+}
+
+td.botonesPopup
+{
+	text-align:right;
+	vertical-align: bottom;
+}
+
+table.checkboxList .label
+{
+	font-weight: bold;
+	text-align: right;
+}
+
+
+/*Fin checkboxList table ------------------------------------------------------------*/
+input
+{
+	font-family:Arial,Helvetica,sans-serif;
+	font-family:arial;
+	font-size: 11px;
+}
+	
+input.text
+{
+	border: 1px solid #d1d5d6;
+	border-left-color: #576a6f;
+	border-top-color: #576a6f;
+	height: 14px;
+	line-height: 12px;
+	margin: 0px 5px;
+	padding: 0;
+}
+input.file
+{
+   font-family:Arial,Helvetica,sans-serif;
+	border: 1px solid #d1d5d6;
+	border-left-color: #576a6f;
+	border-top-color: #576a6f;
+	line-height: 12px;
+	margin: 0px 5px;
+	padding: 0;
+}
+textarea
+{
+	font-family:Arial,Helvetica,sans-serif;
+	border: 1px solid #d1d5d6;
+	border-left-color: #576a6f;
+	border-top-color: #576a6f;
+	font-size: 11px;
+	line-height: 12px;
+	margin: 0px 5px;
+	padding: 0;
+}
+select
+{
+	font-family:Arial,Helvetica,sans-serif;
+	border: 1px solid #d1d5d6;
+	border-left-color: #576a6f;
+	border-top-color: #576a6f;
+	font-size: 11px;
+	line-height: 12px;
+	margin: 0px 5px;
+	padding: 0;	
+}
+
+.formErrorMsg
+{
+	color: #F00;
+}
+
+/* botones ---- */
+.btn_table, .btn_table input, .btn_table button  {
+	font-family:Verdana, Arial, Helvetica, sans-serif; 
+	font-size:10px;
+	font-weight:normal;
+	line-height:19px;
+	text-align:center;
+	text-transform:uppercase;
+	height:19px;
+	border:0;
+	color:#12437D;
+	display:inline;
+	vertical-align: top;
+
+}
+
+table .btn_table td{
+	padding: 0;
+}
+
+.btn_table input, .btn_table button  {
+	padding: 0px;
+	cursor:hand;
+}
+
+.btn_table_left{ 
+	width:2px; 
+	height:19px; 
+	background: url(img/formulario/bt_costado.jpg) no-repeat top left;
+}
+.btn_table_right{ 
+	width:2px; 
+	height:19px; 
+	background: url(img/formulario/bt_costado.jpg) no-repeat top right;
+}
+
+.btn_over{
+	background: url(img/formulario/bt_backgrounds.jpg)  repeat-x 0 -19px;
+	cursor:pointer;
+	color:#3977aa;
+	border:1px solid red;
+}
+
+.btn_out{
+	background: url(img/formulario/bt_backgrounds.jpg) repeat-x 0 0;
+	cursor:pointer;
+	color:#3977aa;
+}
+
+input.btn_disabled , button.btn_disabled {
+	background: url(img/formulario/bt_backgrounds.jpg) repeat-x 0 -38px;
+	cursor:inherit;
+	color: #B0B0B0;
+}
+/* ---------------------------------------------------------------------------*/
+
+
+
+body#popup, body#error
+{
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0 3px 5px 3px;
+	padding: 10px;
+}
+div.ampliar
+{
+	float: left;
+	width: 78px;
+}
+div.ampliar
+{
+	margin-right: 5px;
+}
+
+
+#error .bloque h3 span
+{
+	color: #F00;
+}
+#error .bloque .cuerpo
+{
+	vertical-align: top;
+	padding-bottom: 2px;
+}
+
+#error #stackTrace
+{
+	width: 95%;
+	overflow: auto;
+	background-color: #FCFCFC;
+	font-family: arial,sans-serif;
+	font-size: 10px;
+}
+
+
+#spinnerTxt
+{
+	padding-left:5px;
+	font-weight:600;
+	color:#666666;
+}
+
+
+.codeSample
+{
+	border:1px solid #dddddd; 
+	border-top:1px solid #aaaaaa;
+	border-left:1px solid #aaaaaa;
+	background-color:#ffffff;
+	width:95%;
+	padding:5px;
+	font-family:monospace;
+	font-size:11px;
+	color: #41445F;
+	margin-left: 10px;
+}
+.codeComment
+{
+	font-style:italic;
+	color: #6C9F45;	
+}
+
+.selectedRow
+{
+	background-color: #D6EAF3;
+}
+
+.showHand {
+	cursor:pointer;
+}
+
+.currentRow {
+	background-color:#FFF1A8;
+}
+
+.toolBar
+{
+	width: 100%;
+	border:0;
+	border-top: 1px solid #CCD0D1;
+	border-bottom: 1px solid #CCD0D1;
+	margin-bottom: 5px;
+}	
+
+.range {
+	list-style-image: none;
+	list-style-position:outside;
+	list-style-type:none;
+	
+}
+
+.rangeLeft { 
+	background-image: url(img/calendario/anterior.png);
+	background-repeat: no-repeat;
+	width: 17px;
+	height: 17px;
+	float: left;
+	
+}
+.rangeRight { 
+	background-image: url(img/calendario/proximo.png);
+	background-repeat: no-repeat;;
+	width: 17px;
+	height: 17px;
+	float: right;
+	
+}
+
+.rangeLeftOver { 
+	background-image: url(img/calendario/anterior_over.gif);
+}
+	
+.rangeRightOver { 
+	background-image: url(img/calendario/proximo_over.gif);
+	
+}
+
+
+.pagProximo {
+	background-image: url(../images/paginador/pag_proximo.png);
+		width: 17px;
+	height: 17px;
+	float: right;
+}
+
+.pagProximo.pagOver {
+	background-image: url(../images/paginador/pag_proximo_over.gif);
+	width: 17px;
+	height: 17px;
+	float: right;
+}
+
+.pagUltimo {
+	background-image: url(../images/paginador/pag_ultimo.png);
+	width: 17px;
+	height: 17px;
+	float: right;
+						
+}
+
+.pagUltimo.pagOver {
+	background-image: url(../images/paginador/pag_ultimo_over.gif);
+	width: 17px;
+	height: 17px;
+	float: right;
+}
+
+
+.pagAnterior {
+	background-image: url(../images/paginador/pag_anterior.png);
+	width: 17px;
+	height: 17px;
+	float: right;
+}
+
+.pagAnterior.pagOver {
+	background-image: url(../images/paginador/pag_anterior_over.gif);
+	width: 17px;
+	height: 17px;
+	float: right;
+}
+
+.pagPrimero {
+	background-image: url(../images/paginador/pag_primero.png);
+	width: 17px;
+	height: 17px;
+	float: right;
+	
+}
+
+.pagPrimero.pagOver {
+	background-image: url(../images/paginador/pag_primero_over.gif);
+	width: 17px;
+	height: 17px;
+	float: right;
+	
+}
+
+label.ui-state-error  {
+   border: none;  !important	
+}
+
+.ui-widget-content label.ui-state-error {
+   border: none; !important
+}
+ 
+
+.separador_h_middle
+{
+	height:17px;
+	align: center;
+	text-align: center;
+	background: url(img/gris.gif) center repeat-x ;
+}
+
+.inconsistencia {
+	color: black;
+	
+}
+
+A.currentInconsistencia, A.currentInconsistencia:hover, A.currentInconsistencia:visited, A.currentInconsistencia.active  {
+	color:white;
+	font-size: 13px; 
+	font-weight: bold
+}
+
+.ui-dialog-title {
+	font-size: 14px;
+}
+
+.AddOne {
+background: url(../images/paginador/pag_proximo.png);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+.AddOne p:hover{
+background: url(../images/paginador/pag_proximo_over.gif);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+
+
+.AddAll {
+background-image: url(../images/paginador/pag_ultimo.png);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+
+.RemoveOne {
+background-image: url(../images/paginador/pag_anterior.png);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+
+.RemoveAll {
+background-image: url(../images/paginador/pag_primero.png);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+.tsmsselect {
+	width: 40%;
+	float: left;
+}
+
+.tsmsselect select {
+	width: 100%;
+}
+
+.tsmsoptions {
+	width: 20%;
+	float: left;
+}
+
+.tsmsoptions p {
+	margin: 2px;
+	text-align: center;
+	font-size: larger;
+	cursor: pointer;
+}
+
+.tsmsoptions.AddOne p:hover {
+background: url(../images/paginador/pag_proximo_over.gif);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+.tsmsoptions.AddAll p:hover {
+background: url(../images/paginador/pag_ultimo_over.gif);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+.tsmsoptions.RemoveOne p:hover {
+background: url(../images/paginador/pag_anterior_over.gif);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+.tsmsoptions.RemoveAll p:hover {
+background: url(../images/paginador/pag_primero_over.gif);
+background-repeat:no-repeat;
+text-align: center;
+width: 100px;
+}
+
+.subtitulo {    
+     color: #0097d0;
+	 font-size: 12px;
+	 margin-left:10px;
+	 font-weight:bold;
+	 padding-bottom:0px;
+}
+.droppable {
+	border:1px solid; 
+	width: 300px; 
+	heigth: 200px
+}
+
+/************Imagenes para paginador DisplayTag*****************************/
+.pagDisplayTag {
+	background-repeat:no-repeat;
+	text-align: center;
+	float: left;
+	width: 17px;
+	height: 17px;
+}
+
+.pagDisplayTagProx {
+	background: url(../images/paginador/pag_proximo.png);
+}
+
+.pagDisplayTagProx:hover {
+	background: url(../images/paginador/pag_proximo_over.gif);
+}
+
+.pagDisplayTagUltimo {
+	background: url(../images/paginador/pag_ultimo.png);
+}
+
+.pagDisplayTagUltimo:hover {
+	background: url(../images/paginador/pag_ultimo_over.gif);
+}
+
+.pagDisplayTagPrimero {
+	background: url(../images/paginador/pag_primero.png);
+}
+
+.pagDisplayTagPrimero:hover {
+	background: url(../images/paginador/pag_primero_over.gif);
+}
+
+.pagDisplayTagAnterior {
+	background: url(../images/paginador/pag_anterior.png);
+}
+
+.pagDisplayTagAnterior:hover {
+	background: url(../images/paginador/pag_anterior_over.gif);
+}

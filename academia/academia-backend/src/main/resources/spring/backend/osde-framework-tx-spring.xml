@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Aplicación prototype para pruebas de concepto de framework 2.0 OSDE -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+	
+	<description>Definiciones transaccionales de la aplicacion</description>
+ 
+ 	<!-- **************************************
+		Configuracion de Datasources
+		************************************** 
+	-->
+ 	<!--    MNT STK NIAN. Se comenta conexio a bd en memoria
+		Datasource definido para la aplicacion, en test de unidad se
+		sobreescribe
+	
+	<bean id="spring.datasource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url" value="jdbc:hsqldb:${catalina.home}/temp/test-db-fwk" />
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+	</bean>
+	-->
+	<!--
+		MNT STK NIAN. Se habilita conexion a bd por jndi-name
+		Datasource JNDI, el nombre del jndiName, no deberia estar atado al
+		servidor, es por eso que se debe utilizar para realizar el mapping el
+		archivo jboss-web.xml
+	-->
+	
+		<bean id="spring.datasource" class="org.springframework.jndi.JndiObjectFactoryBean">
+			<property name="jndiName" value="java:jdbc/osdeDS"/>
+			<property name="proxyInterface" value="javax.sql.DataSource" />
+			<property name="resourceRef" value="true" />
+		</bean>
+	
+ 
+	<!-- ******************** TX CONFIGURATION ****************************** -->
+	<!-- Pointcuts y advice para transacciones en bos-->
+	<aop:config proxy-target-class="false">
+		<aop:pointcut id="poincut.bo.tx" expression="bean(*.tx.bo)" />
+		<aop:advisor advice-ref="tx.advice.business" pointcut-ref="poincut.bo.tx" />
+	</aop:config>
+	<!-- Definicion del aspecto de tx para BOs -->
+	<tx:advice id="tx.advice.business" transaction-manager="spring.transaction.manager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="*" rollback-for="java.lang.RuntimeException,ar.com.osde.framework.business.exception.BusinessException" />
+		</tx:attributes>
+	</tx:advice>
+	
+	
+	<!-- ****** TX MANAGER ************ -->
+	<!-- Transaction manager a utilizar en la aplicacion, puede cambiarse por JTA -->
+	<bean id="spring.transaction.manager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="spring.hibernate.session.factory" />
+	</bean>
+	<!-- 	
+  		<bean id="spring.transaction.manager" class="org.springframework.transaction.jta.JtaTransactionManager" />
+ 	-->
+
+
+
+	<!-- ********************** -->
+	<!-- CONFIGURACION BASE DE HIBERNATE -->
+	<!-- ********************** -->
+	
+	<!-- SessionFactory de Hiberante utilizado por los diferentes DAOs-->
+	<bean id="spring.hibernate.session.factory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="spring.datasource" />
+		<property name="hibernateProperties" ref="spring.hibernate.properties"/>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:**/*.hbm.xml</value>
+			</list>
+		</property>
+		 <!-- Load mappings from jar's -->
+        <property name="mappingJarLocations">
+            <list>
+                <value>WEB-INF/lib/*entities*.jar</value>
+            </list>
+        </property>
+	<!--MNT STK NIAN. Se agrega paquete para scanear annotations-->
+	<property name="packagesToScan" value="ar.com.stk"/>			
+	</bean>
+	<!-- Propiedades de configuracion de hibernate -->
+	<bean id="spring.hibernate.properties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<!--MNT STK NIAN. Cada vez que levanto la aplicacion se realiza el drop y luego el create de la base de datos-->
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<!--prop key="hibernate.hbm2ddl.auto">update</prop-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<prop key="hibernate.connection.release_mode">on_close</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</prop>
+				<prop key="hibernate.jdbc.fetch_size">100</prop>
+				<prop key="hibernate.jdbc.use_streams_for_binary">true</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+			</props>
+		</property>
+	</bean>
+
+
+</beans>

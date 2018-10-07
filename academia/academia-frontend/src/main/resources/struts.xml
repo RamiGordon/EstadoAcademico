@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Template de configuracion general para struts2 -->
+<struts>
+
+    <!-- Propiedades globales para la configuracion de struts2 -->
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.i18n.encoding" value="ISO-8859-1" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.custom.i18n.resources" value="messages,errors" />
+    <constant name="struts.action.extension" value="do" />
+    <constant name="struts.serve.static" value="true" />
+    <constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.ui.theme" value="osdeTheme" />
+	<!-- 
+	<constant name="struts.action.excludePattern" value="*.jsp*"/>
+	 -->
+	
+	<include file="struts/hospital.xml" />
+    <include file="struts/libreria.xml" />
+	<include file="struts/crudAction.xml" />
+	<include file="struts/invoices.xml" />
+	<include file="struts/randomString.xml" />
+	<include file="struts/secure.xml" />
+ 
+    <package name="default" extends="struts-default">
+    	
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+		</result-types>
+    	
+    	
+        <interceptors>
+        
+            <interceptor name="multiSelectInterceptor" class="ar.com.osde.framework.web.common.action.crud.interceptors.MultiselectInterceptor"></interceptor>
+
+			<interceptor-stack name="crudDefaultStack">
+			
+			
+				<interceptor-ref name="exception" />
+
+				<interceptor-ref name="params">
+					<param name="acceptParams">id</param>
+					<param name="excludeParams">struts.token, struts.token.name</param>
+				</interceptor-ref>
+
+				<interceptor-ref name="token">
+					<param name="includeMethods">save,update,remove</param>
+				</interceptor-ref>
+
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="modelDriven" />
+
+				<interceptor-ref name="multiSelectInterceptor" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">struts.token, struts.token.name</param>
+				</interceptor-ref>
+
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				
+				<interceptor-ref name="validation">
+					<param name="includeMethods">save*,update*</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="includeMethods">save*,update*</param>
+				</interceptor-ref>
+
+				<interceptor-ref name="exception">
+					<param name="logEnabled">true</param>
+					<param name="logLevel">error</param>
+					<param name="logCategory">ar.com.stk.web.exceptionmapping</param>
+				</interceptor-ref>
+			</interceptor-stack>
+			
+			<interceptor-stack name="crudStack">
+              	<interceptor-ref name="checkbox" />
+                <interceptor-ref name="params" />
+        		<interceptor-ref name="staticParams" />
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="exception">
+                	<param name="logEnabled">true</param>
+                	<param name="logLevel">error</param>
+                	<param name="logCategory">ar.com.stk.web.exceptionmapping</param>
+                </interceptor-ref>
+            </interceptor-stack>
+
+			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor" />
+
+        </interceptors>
+        
+		<default-interceptor-ref name="crudDefaultStack"/>
+		
+        <default-action-ref name="home" />
+
+		<global-results>
+			
+			<result name="NullPointer">/pages/template/includes/mensajes/error.jsp?decorator=error</result>
+			<result name="Exception" >/pages/template/includes/mensajes/error.jsp?decorator=error</result>
+
+        </global-results>
+
+        <global-exception-mappings>
+        	<exception-mapping exception="java.lang.NullPointerException" result="NullPointer" />
+        	<exception-mapping exception="java.lang.Exception" result="Exception"  />
+        </global-exception-mappings>
+        
+        <action name="home">
+            <result>index.jsp</result>
+        </action>
+        
+        <!-- action generico para errores -->
+        <action name="error" class="error.web.action">
+        	<!-- interceptor-ref name="retrieveStack"/ -->
+            <result>/pages/template/includes/mensajes/errorPage.jsp</result>
+        </action>
+        
+         <action name="changeLayout" class="layout.web.action">
+		    <interceptor-ref name="createSession"/>
+		    <interceptor-ref name="defaultStack"/>
+            <result type="redirectAction">home</result>
+        </action>
+        
+        <action name="dialogAction" class="demo.dialog.web.action">
+        	<!-- interceptor-ref name="storeStack"/ -->
+            <result name="error_page" >/pages/template/errorPage.jsp</result>
+            <result name="error_dialog">/pages/template/includes/mensajes/error.jsp?decorator=none</result>
+        </action>
+        
+    </package>
+
+</struts>

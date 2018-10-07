@@ -1,0 +1,7 @@
+#Ejemplo de datasource para SQL Server, para otras bases consultar https://sites.google.com/a/osde.com.ar/gs-arquitecturaaplicaciones/contenido-operativo/guias/jboss-eap-6/jboss-eap-6---configuracion-de-base-de-datos
+
+:take-snapshot()
+/subsystem=datasources/jdbc-driver=sqlserver:add(driver-module-name=com.microsoft.sqljdbc,driver-name=sqlserver,driver-datasource-class-name=com.microsoft.sqlserver.jdbc.SQLServerDataSource)
+/subsystem=datasources/data-source=AppDS:add(jndi-name="${datasource.jndi}", connection-url="${datasource.connection.url}", driver-name=sqlserver, user-name=${datasource.username}, password=${datasource.password}, min-pool-size=2, max-pool-size=10, valid-connection-checker-class-name="org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker")
+/subsystem=datasources/data-source=AppDS:write-attribute(name=jta,value=false)
+/subsystem=datasources/data-source=AppDS:enable(persistent=true)

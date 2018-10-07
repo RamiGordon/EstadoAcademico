@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ar.com.stk.common.entities.crud.Provincia">
+		<id name="id" type="long" column="ID">
+			<generator class="native" />
+		</id>
+
+		<property name="codigo"></property>
+		<property name="descripcion"></property>
+		<property name="nombreCapital"></property>
+
+
+		<many-to-one name="pais" class="ar.com.stk.common.entities.crud.Pais" column="pais_id" lazy="false"/> 		
+		<many-to-one name="continente" class="ar.com.stk.common.entities.crud.Continente" column="cont_id" lazy="false"/> 		
+
+		<!-- genericos -->
+		<property name="estado"></property>
+		
+	</class>
+</hibernate-mapping>

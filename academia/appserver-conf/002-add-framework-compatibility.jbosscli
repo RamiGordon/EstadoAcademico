@@ -1,0 +1,3 @@
+/system-property=org.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING:add(value=false)
+/system-property=jboss.server.home.dir:add(value=${jboss.server.base.dir})
+/system-property=jboss.server.config.url:add(value="file:${jboss.server.config.dir}")

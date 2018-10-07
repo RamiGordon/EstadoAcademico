@@ -1,0 +1,158 @@
+/* CSS Document */
+.toolBar .btn_table button{
+padding:0 20px; !important
+text-align:left; !important
+}
+.toolBar .btn_table {
+display:block;
+}
+
+.toolBar button {
+width:130px;
+
+}
+
+.toolBar .btn_out {
+   background:url("img/dropDown/headOn.gif");
+   background-repeat:no-repeat;
+   background-position:top right;
+   color:#3977AA;
+   cursor:pointer;
+}
+
+.toolBar .head_off .btn_out {
+   background:url("img/dropDown/headOff.gif");
+   background-repeat:no-repeat;
+   background-position:top right;
+   color:#999999;
+   cursor:pointer;
+}
+
+.toolBar .btn_over{
+   background:url("img/dropDown/headOver.gif");
+   background-repeat:no-repeat;
+   background-position:top right;
+   cursor:pointer;
+   color:#3977aa;
+}
+
+.toolBar .head_off .btn_over{
+   background:url("img/dropDown/headOff.gif");
+   background-repeat:no-repeat;
+   background-position:top right;
+   cursor:pointer;
+   color:#999999;
+}
+
+.menu{
+	background-color:#fbfbfb;
+	display:none;
+	padding:0px;
+	margin:0px;
+	position:absolute;
+}
+
+li.head_on,li.head_off{
+display:none;
+}
+
+.listaImg{
+	overflow:hidden;
+}
+.dropDown .menu{
+	width:162px;
+
+}
+.dropDown {
+	width:162px;
+}
+/* ul.menu:hover{
+	overflow:visible;
+}
+*/
+.dropDownMenuItem, .menu li.item{
+	position:relative;
+	background-color:#FBFBFB;
+	list-style:none outside none;
+	height:25px;
+	line-height: 12px;
+	background-image:url(img/dropDown/menuBg.gif );
+	width:163px;
+	background-repeat:repeat-y;
+}
+
+.menu li.item .label{
+	left:35px;
+	padding-left:3px;
+	top:3px;
+	width:70px;
+	display:block;
+	position:absolute;
+
+}
+.menu li.first{
+	background-image:url(img/dropDown/menuTop.gif);
+	background-repeat:no-repeat;
+	height:6px;
+	line-height:0px;
+	font-size:0px;
+	background-position:center bottom;
+}
+.menu li.first:hover{
+    background-image:url(img/dropDown/menuTop.gif) !important;
+	background-repeat:no-repeat !important; 
+	font-weight:normal !important;
+	cursor:default !important;
+}
+.menu li.last{
+	height:6px;
+	background-image:url(img/dropDown/menuBottom.gif);
+	background-repeat:no-repeat;
+	background-position:center top;
+	line-height:0px;
+	font-size:0px;
+}
+.menu li.last:hover{
+    background-image:url(img/dropDown/menuBottom.gif) !important;
+	background-repeat:no-repeat !important; 
+	font-weight:normal !important;
+	cursor:default !important;
+}
+
+.menu li.item a img{
+	border:none;
+	margin-top:3px;
+}
+
+.menu li.item a{
+	color: #014783;
+	line-height: 18px;
+	margin: 0px;
+	margin-left: 10px;
+	text-decoration: none;
+
+}
+.menu li a.off{
+	color: #999999;
+}
+
+.menu .item a, .menu .item a img,.menu .item a .label{
+background-color:transparent;
+
+}
+.menu li.item:hover{
+    background-image:url(img/dropDown/menuBgHover.gif);
+	background-repeat:repeat-y;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.menu li.item a{*display:block; *height:100%;*margin:0px -0px 0px -1px;*padding-left:14px}
+
+.menu li.item a:hover{
+    *background-image:url(img/dropDown/menuBgHover.gif);
+	*background-repeat:repeat-y;
+	*font-weight:bold;
+	*cursor:pointer;	
+}
+

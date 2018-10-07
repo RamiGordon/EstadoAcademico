@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<decorators defaultdir="/pages/layout">
+    <!-- Any urls that are excluded will never be decorated by Sitemesh -->
+    <excludes>
+     	<pattern>*/WEB-INF/*</pattern>
+    	<pattern>*/reportes/*</pattern>
+        <pattern>*/styles/*</pattern>
+        <pattern>*/js/*</pattern>
+        <pattern>*/images/*</pattern>
+        <pattern>/context/*</pattern>
+        <pattern>*/webservices/*</pattern>
+        <pattern>*/ajax/*</pattern>
+        <pattern>*/popup/*</pattern>
+        <pattern>*.html*</pattern>
+		<pattern>*/WEB-INF/*</pattern>
+         <!--  ABM Generico -->
+        <pattern>/crud/*</pattern>  
+	    <pattern>/crud/*ialog=*</pattern> 
+	    <pattern>/crud/editar.do*</pattern> 
+	    <pattern>/crud/crear.do*</pattern> 
+	    <pattern>/crud/ejecutarCrear.do*</pattern> 
+	    <pattern>/crud/ejecutarEditar.do*</pattern> 
+	    <pattern>/crud/borrar.do*</pattern> 
+		<!--  / ABM Generico --> 
+    </excludes>
+
+    <!-- No aplica navegaci�n ni modifica el html original -->
+    <decorator name="none" page="raw.jsp">
+    	<!-- 	<pattern>*!dialog*</pattern> -->
+    </decorator> 
+    
+    <!-- Navegacion mediante menu vertical, aplica por default  -->
+    <decorator name="layout1" page="default.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+    
+    <!-- Navegacion mediante menu horizontal desplegable -->
+    <decorator name="layout2" page="layout2.jsp"/>
+    
+    <!-- Navegacion mediante menu horizontal no-desplegable -->
+    <decorator name="layout3" page="layout3.jsp"/>
+    
+    <!-- 
+    Pagina de error general, sin navegaci�n y dentro de un bloque 
+    Aplica al ejecutarse el action generico para errores
+    -->
+    <decorator name="error" page="errorBlock.jsp">
+    	<!-- <pattern>*/error.do</pattern> -->
+    </decorator> 
+    
+</decorators>

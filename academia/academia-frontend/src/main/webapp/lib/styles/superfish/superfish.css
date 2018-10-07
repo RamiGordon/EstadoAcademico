@@ -1,0 +1,281 @@
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+	
+}
+.sf-menu {
+	line-height: 0.2;
+	position: relative;
+	z-index: 1000;
+	top:-4px;
+	left: 6px;
+}
+
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			10em; /* left offset of submenus need to match (see below) */	
+}
+
+
+.sf-menu li {
+	float: 	left;
+	position: relative;	
+	z-index: 1010; /* fix para que se muestre sobre otros elementos relativos*/
+	height: 20px;
+	width: 0.2; /* define un ancho minimo, necesario para que IE lo muestre bien y FFX lo ignora*/
+	white-space: nowrap;
+	border-bottom:	1px solid #dddddd; /*border inferior del menu ppal.*/
+
+
+}
+
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+
+
+.sf-menu li ul li
+{
+	background-color:#F0F0F0;
+}
+
+.sf-menu a {
+	display:		block;
+	position:		relative;	
+	white-space: nowrap;
+}
+
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			0;
+	top:			1.8em; /* match top ul list item height */
+	z-index:		999999;
+	color: #000000;
+	
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+
+/*** DEMO SKIN ***/
+.sf-menu {
+	float:			left;
+	margin-bottom:	0;
+}
+.sf-menu a {
+	padding: 		.75em 1em;
+	text-decoration:none;
+	/*border-right:	1px solid #dddddd;*//*saque este borde xq aplica atodo menu y submenu*/
+}
+.sf-menu a, a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color:			#666666;
+}
+
+
+.sf-menu li li {
+	border-right:	1px solid #dddddd;/*agregue este atributo para darle solo border al submenu*/
+	border-left:	1px solid #dddddd;
+	border-bottom:	1px solid #dddddd;	
+}
+
+.sf-menu li li li {
+	color:			#000000;
+	border-left:	1px solid #dddddd;
+	
+}
+
+
+/* -- CUSTOM ---------------------------------------------------------------- */
+
+.first{/* estilo de la prime opcion de primer nivel */
+	background: #fff url(../img/solapas/extremos.gif) no-repeat left; /*rincon left*/;
+}
+
+.principal{/* estilo de las opciones intermedias de primer nivel */
+	background: #F0F0F0 /* url(../img/solapas/solapa-li.gif) no-repeat right */;
+}
+
+.last { /* estilo de la ultima opcios de primer nivel */
+	background: #fff url(../img/solapas/extremos.gif) no-repeat right; /*rincon right*/;
+}
+
+.separator {/* estilo de los separadores de opciones */
+	width:10px;
+	background: #F0F0F0 url(../img/solapas/solapa-li.gif) no-repeat center;
+}
+
+/* BACKGOUNDS del primer nivel del menu ------*/
+
+/* <LI> de primer nivel ( define rincon redondeado der. )*/
+/* li.sfHover*/ /* ffx & ie */
+.first:hover,
+.principal:hover,
+.last:hover,
+.li.sfHover
+{
+  background: url(../img/solapas/solapa.gif) repeat top right;
+  
+}
+
+/* <a> de primer nivel ( define rincon redondeado izq. dentro de principal, first y last ) */
+.principal a:hover, .principal a:active,
+.first a:hover, .first a:active,
+.last a:hover, .last a:active
+{	
+    background: url(../img/solapas/left_solapa_activa.gif) no-repeat top left;
+	outline: 0;
+	color: #ffffff;
+}
+
+
+/* IE no toma el hover en el primer <li> asi que redefino el over sobre el <a>*/
+.first a:hover, .first a:active
+{
+  background: url(../img/solapas/solapa.gif) repeat top right; 
+  
+}
+
+ /* reestablezco el borde redondeado izq. para FFX ( ie ignorara el selector) */
+.first > a:hover,  .first > a:active 
+{
+	background: url(../img/solapas/left_solapa_activa.gif) no-repeat top left;
+}
+
+
+
+
+/* segundo nivel*/
+
+.sf-menu li ul li a:hover, .sf-menu li ul li ul li a:hover,
+.sf-menu li ul li a:active, .sf-menu li ul li ul li a:active,
+.sf-menu li ul li a:focus, .sf-menu li ul li ul li a:focus
+{
+	/*
+	background-color: #9A928F;
+	background-image: none;
+	*/ 
+	background: url(../img/solapas/solapa.gif) repeat top right;
+}
+
+/* ------------ */
+
+
+
+/*Links activos y hover en bold ?*/
+.sf-menu a:hover, .sf-menu a:active{
+	/* font-weight:600; */
+}
+
+a:link .sf-sub-indicator { 
+	background:url(../img/flecha.gif) 0 -80px no-repeat; /*OK*/
+	border:0px solid green;
+}
+
+a:visited .sf-sub-indicator{ 
+	background:url(../img/flecha.gif) 0 -80px no-repeat;}/*OK*/
+
+a:hover .sf-sub-indicator{ 
+	background:url(../img/flecha.gif) 0 -102px no-repeat;
+}
+
+a:active .sf-sub-indicator{ background:url(../img/flecha.gif) 0 -102px no-repeat;}	
+a > .sf-sub-indicator {  /*give all except IE6 the correct values */
+	top: .5em;
+	background-position: 0 -100px;  /*use translucent arrow for modern browsers*/
+}
+
+/*SUB-MENUS*/
+ul li ul li a:link .sf-sub-indicator {
+	 
+	background:url(../img/flecha.gif) 0 -32px no-repeat; /*OK*/
+}
+
+ul li ul li a:visited .sf-sub-indicator{ 
+	background:url(../img/flecha.gif) 0 -32px no-repeat;}/*OK*/
+
+ul li ul li a:hover .sf-sub-indicator{ 
+	background:url(../img/flecha.gif) 0 0 no-repeat;
+
+}
+
+
+
+/* point right for anchors in subs */
+.sf-menu ul .sf-sub-indicator { 
+	background-position:  0 -102px;
+	
+}
+.sf-menu ul a > .sf-sub-indicator { 
+	background-position:  0 -102px; 
+}
+
+.sf-menu a.sf-with-ul {
+	padding-right: 	2.25em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			.75em;
+	top:			1.05em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	/*background:		url(../img/flecha.gif)  no-repeat 0 0px; /* 8-bit indexed alpha png. IE6 gets solid image only *//*modificado por mi ../img/arrows-ffffff.png'*/	
+}
+a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.5em;
+	background-position: 0 -70px; /* use translucent arrow for modern browsers*/
+}
+/* apply hovers to modern browsers */
+a:focus > .sf-sub-indicator,
+a:hover > .sf-sub-indicator,
+a:active > .sf-sub-indicator,
+li:hover > a > .sf-sub-indicator,
+li.sfHover > a > .sf-sub-indicator {
+background-position: 0 -102px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+.sf-menu ul .sf-sub-indicator { background-position:  0 -10px;}
+.sf-menu ul a > .sf-sub-indicator { background-position:  0 -10px; }
+
+/* apply hovers to modern browsers */
+.sf-menu ul a:focus > .sf-sub-indicator,
+.sf-menu ul a:hover > .sf-sub-indicator,
+.sf-menu ul a:active > .sf-sub-indicator,
+.sf-menu ul li:hover > a > .sf-sub-indicator,
+.sf-menu ul li.sfHover > a > .sf-sub-indicator {
+	background-position: 0 0; /* arrow hovers for modern browsers*/
+}
+
+/*** shadows for all but IE6 ***/
+.sf-shadow ul {
+	background:	url('../img/shadow.png') no-repeat bottom right;
+	padding: 0 8px 9px 0;
+	-moz-border-radius-bottomleft: 17px;
+	-moz-border-radius-topright: 17px;
+	-webkit-border-top-right-radius: 17px;
+	-webkit-border-bottom-left-radius: 17px;
+}
+
+

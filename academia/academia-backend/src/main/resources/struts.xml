@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Template de configuracion general para struts2 -->
+<struts>
+
+    <!-- Propiedades globales para la configuracion de struts2 -->
+    <constant name="struts.i18n.reload" value="false" />
+    <constant name="struts.i18n.encoding" value="ISO-8859-1" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.custom.i18n.resources" value="messages,errors" />
+    <constant name="struts.action.extension" value="do" />
+    <constant name="struts.serve.static" value="true" />
+    <constant name="struts.serve.static.browserCache" value="false" />
+		
+    <package name="default" extends="struts-default">
+    	
+		<result-types>
+			<result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+		</result-types>
+    	
+    	
+        <interceptors>
+        
+            <interceptor-stack name="crudStack">
+              	<interceptor-ref name="checkbox" />
+                <interceptor-ref name="params" />
+        		<interceptor-ref name="staticParams" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+
+			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor" />
+        </interceptors>
+        
+		<default-interceptor-ref name="crudStack"/>
+	</package>
+
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!--
+		Aplicación prototype para pruebas de concepto de framework 2.0 OSDE
+		GPI Argentina S.A.
+		Santiago Urrizola
+	-->	
+<hibernate-mapping package="ar.com.stk.common.entities.libreria">
+  <class name="Libro" table="LIBRO">
+  	<id name="id"  column="libro_id" unsaved-value="0" type="long">
+  		<generator class="native" ></generator>
+  	</id>
+	<property name="nombre" column="nombre" type="string" length="50" />
+	<property name="descripcion" column="descripcion" type="string" length="255" />
+	<property name="isbn" column="isbn" type="string" length="10" />
+	<property name="fechaEdicion" column="fechaEdicion" type="date"/>
+	<property name="stockMinimo" column="stockMinimo" type="int"/>
+	<property name="precio" column="precio" type="double"/>
+	<many-to-one name="categoria" class="Categoria" column="categoria_id" fetch="join" lazy="proxy"/>
+    <list name="autores" table="libro_autor" fetch="join" lazy="true"  >
+           <key column="libro_id"/>
+           <index column="id"/>
+           <many-to-many column="autor_id" class="Autor"/>
+     </list>
+  </class>
+</hibernate-mapping>

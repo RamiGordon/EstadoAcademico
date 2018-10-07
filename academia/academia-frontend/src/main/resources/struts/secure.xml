@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Template de configuracion general para struts2 -->
+<struts>
+<!-- Paquete de demostracion de acceso al context -->
+	<package name="example.secure" extends="default" namespace="/secure">
+		<default-interceptor-ref name="crudStack" />
+		<global-results>
+			<result name="SUCCESS">/pages/demo/cache.jsp
+			</result>
+		</global-results>
+		<action name="init">
+			<result>/pages/demo/cache.jsp</result>
+		</action>
+	</package>
+</struts>

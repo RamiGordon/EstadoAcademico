@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>	
+	<title>OSDE Template - Archetype</title>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	
+	<link type="text/css" href="academia-frontend/src/main/webapp/styles/global.css" rel="stylesheet"  />
+</head>
+
+<body>
+
+	<table id="estructura">   	
+		<tr>
+			<td id="tituloPosicion" rowspan="4">
+				<table>
+					<tr>
+						<td>
+							<h2>OSDE Template Archetype - README</h2>
+						</td>
+
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<!-- Contenido -->
+	<table id="estructura">
+		<tr>			
+			<td style="width: 5px;">&nbsp;</td>
+			<td valign="top" id="contenido">
+				<div class="bloque">
+					<h3><span>General</span></h3>
+					<div class="cuerpo">
+						<p>
+						Este arquetipo genera una estructura multi-módulo con los archivos que conforman el template del look & feel para el cliente web.
+						<br><br>
+						Los módulos generados por el arquetipo son los siguientes:
+						<ul>
+							<li><b>academia-backend:</b>&nbsp;&nbsp;Lógica de negocio e implementación de web-services</li>
+							<li><b>academia-frontend:</b>&nbsp;&nbsp;Lógica de vista</li>
+							<li><b>academia-services:</b>&nbsp;&nbsp;Interfaces de web-services</li>
+							<li><b>academia-entities:</b>&nbsp;&nbsp;Beans referenciados por las interfaces de los web-services</li>
+						</ul>
+						</p>
+						<p>
+						La estructura generada por el arquetipo soporta 2 modos de generación de WARs que se debe elegir
+						dependiendo de la estrategia de deploy de la aplicación.&nbsp;La configuración por default es la de deploy distribuído.
+						</p>
+						<br/>
+					</div>		
+					<div class="pie">
+						<div></div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<table id="estructura">
+		<tr>			
+			<td style="width: 5px;">&nbsp;</td>
+			<td valign="top" id="contenido">
+				<div class="bloque">
+					<h3><span>Deploy centralizado</span></h3>
+					<div class="cuerpo">
+						<p>
+						Para el deploy centralizado se genera un único WAR que contiene las clases y recursos de todos los módulos 
+						bajo la carpeta WEB-INF/classes. Este modelo se debe utilizar cuando el módulo frontend y backend son vistos
+						como una única aplicación.
+						</p>
+						<b>Pasos a seguir:</b>
+						<p>
+						1- Verificar que la configuración en el archivo pom.xml del módulo academia-frontend no posea
+						comentada la sección que se muestra a continuación:<br>
+						<div class="codeSample">
+							<b>&lt;!-- Este plugin debe comentarse si se va a realizar un deploy distribuído --&gt;</b><br>
+							<font color="blue">&lt;plugins&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;plugin&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;</font>org.codehaus.mojo<font color="blue">&lt;/groupId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;</font>build-helper-maven-plugin<font color="blue">&lt;/artifactId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;executions&gt;<br></font>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">&lt;/executions&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/plugin&gt;<br>
+							&lt;/plugins&gt;
+							</font>
+						</div>
+						</p>
+						<p>
+						2- Verificar que la configuración en el archivo pom.xml del módulo academia-frontend posea
+						comentada la sección que se muestra a continuación:<br>
+						<div class="codeSample">
+							<b>
+							&lt;!-- Las dependencias a los modulos deben comentarse si <br/>
+							se va a deployar toda la aplicación como un único war --&gt;<br><br>
+							</b>
+							<font color="green">
+							&lt;!-- <br>
+							&lt;dependency&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;ar.com.osde&lt;/groupId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;academia-entities&lt;/artifactId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;<br>
+							&lt;/dependency&gt;<br>
+							<br>
+							&lt;dependency&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;ar.com.osde&lt;/groupId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;academia-services&lt;/artifactId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;<br>
+							&lt;/dependency&gt;<br>
+							--&gt;<br>
+							 </font>
+						</div>
+						</p>
+						<p>
+						3- Ejecutar mvn clean package en la carpeta academia-frontend
+						</p>
+					</div>		
+					<div class="pie">
+						<div></div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<table id="estructura">
+		<tr>			
+			<td style="width: 5px;">&nbsp;</td>
+			<td valign="top" id="contenido">
+				<div class="bloque">
+					<h3><span>Deploy distribuído</span></h3>
+					<div class="cuerpo">
+						<p>
+						Para el deploy distribuído se generan dos WARs uno que contiene todo lo referente para el frontend y el otro 
+						todo lo referente al backend. Este modelo se debe utilizar cuando los módulos frontend y backend son vistos
+						como aplicaciones separadas que se comunican a través de algún protocolo remoto.
+						</p>
+						<b>Pasos a seguir:</b>
+						<p>
+						1- Verificar que la configuración en el archivo pom.xml del módulo academia-frontend posea
+						comentada la sección que se muestra a continuación:<br>
+						<div class="codeSample">
+							<b>&lt;!-- Este plugin debe comentarse si se va a realizar un deploy distribuído --&gt;</b><br>
+							<font color="green">&lt;!--<br>
+							&lt;plugins&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;plugin&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;build-helper-maven-plugin&lt;/artifactId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;executions&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/executions&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/plugin&gt;<br>
+							&lt;/plugins&gt;<br>
+							--&gt;</font>
+						</div>
+						</p>
+						<p>
+						2- Verificar que la configuración en el archivo pom.xml del módulo academia-frontend no posea
+						comentada la sección que se muestra a continuación:<br>
+						<div class="codeSample">
+							<b>
+							&lt;!-- Las dependencias a los modulos deben comentarse si <br/>
+							se va a deployar toda la aplicación como un único war --&gt;<br><br>
+							</b>
+							<font color="blue">
+							&lt;dependency&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;</font>ar.com.osde<font color="blue">&lt;/groupId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;</font>academia-entities<font color="blue">&lt;/artifactId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;</font>1.0.0-SNAPSHOT<font color="blue">&lt;/version&gt;<br>
+							&lt;/dependency&gt;<br>
+							<br>
+							&lt;dependency&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;</font>ar.com.osde<font color="blue">&lt;/groupId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;</font>academia-services<font color="blue">&lt;/artifactId&gt;<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;</font>1.0.0-SNAPSHOT<font color="blue">&lt;/version&gt;<br>
+							&lt;/dependency&gt;<br>
+							</font>
+						</div>
+						</p>
+						<p>
+						3- Ejecutar mvn install en la carpeta academia
+						</p>
+					</div>		
+					<div class="pie">
+						<div></div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

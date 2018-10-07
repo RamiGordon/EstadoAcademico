@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd">
+<validators>
+    <!-- Field-Validator Syntax -->
+    <field name="currentInvoice.id">
+        <field-validator type="required">
+            <param name="trim">true</param>
+            <message>Debe ingresar el ID del invoice</message>
+        </field-validator>
+        <field-validator type="long">
+        	<param name="min">1</param>
+            <param name="max">99</param>
+            <message>El ID debe ser mayor a 1 y menor a 99</message>
+        </field-validator>
+    </field>
+    <field name="currentInvoice.name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>El nombre es obligatorio</message>
+        </field-validator>
+    </field>
+    
+    
+</validators>

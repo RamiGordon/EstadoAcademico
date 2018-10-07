@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  JBoss Server Configuration                                           -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- $Id: workflow-ds.xml,v 1.1 2005/06/07 14:36:42 db2admin Exp $ -->
+
+<datasources>
+
+  <local-tx-datasource>
+    <jndi-name>jdbc/osdeDS</jndi-name>
+	<connection-url>jdbc:sqlserver://localhost:1433;databaseName=ARQOSDE</connection-url>
+	<driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
+	<user-name>academia</user-name>
+	<password>academia2018</password>
+
+      <!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml (optional) -->
+      <metadata>
+         <type-mapping>MS SQLSERVER2014</type-mapping>
+      </metadata>
+	
+    <idle-timeout-minutes>5</idle-timeout-minutes>
+    <check-valid-connection-sql>select 1</check-valid-connection-sql>
+    <track-statements>false</track-statements>
+
+  </local-tx-datasource>  
+  
+
+</datasources>

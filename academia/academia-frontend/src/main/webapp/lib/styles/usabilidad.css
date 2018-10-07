@@ -1,0 +1,44 @@
+/* CSS Document */
+.contenedor{
+   width:100%;
+   margin:2px 0 0 11px;
+}
+.contenido1{
+   float:left;
+}
+.contenido2{
+	float:left; margin-left:60px;
+}
+.contenido1 img, .contenido2 img{
+	padding-right:5px;
+}
+.contenido1 p.incorrecto, .contenido2 p.incorrecto{
+	color:#FF3333
+}
+.clear{
+   clear:both;
+}
+#ancho238{
+   width:238px;
+}
+/*Esto se usa para generar un layout a tres columnas*/
+ #izquierda{
+   width:235px;
+   margin-right:30px;
+   background-color:#F2F2F2;
+   float:left;
+}
+ #derecha{
+   width:235px;
+   margin-right:30px;
+   background-color:#F2F2F2;
+   float:left;
+}
+ #centro{
+   width:235px;
+   margin-right:30px;
+   background-color:#F2F2F2;
+   float:left; 
+}
+/*Fin delayout a tres columnas*/
+

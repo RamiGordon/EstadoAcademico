@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Template de configuracion general para struts2 -->
+<struts>
+	<package name="crudAction" namespace="/crudAction" extends="default">
+		<action name="*!*" method="{2}" class="{1}.web.action">
+			<result name="success">/pages/{1}/edit.jsp</result>
+			<result name="remove">/pages/{1}/list.jsp</result>
+			<result name="result.list">/pages/{1}/list.jsp</result>
+			<result name="redirect.after.post" type="redirectAction">
+				<param name="actionName">{1}</param>
+				<param name="method">list</param>
+			</result>
+			<result name="invalid.token" type="redirectAction">
+				<param name="actionName">{1}</param>
+				<param name="method">list</param>
+			</result>
+			<result name="result">/pages/{1}/result.jsp</result>
+		</action>
+	</package>
+</struts>

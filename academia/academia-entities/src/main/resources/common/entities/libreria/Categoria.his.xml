@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity name="Categoria de libros">
+
+	<column name="Id" property="id"/>
+	<column name="Descripcion" property="descripcion" />
+</entity>

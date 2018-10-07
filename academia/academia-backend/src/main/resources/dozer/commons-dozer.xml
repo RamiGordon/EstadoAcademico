@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mappings PUBLIC "-//DOZER//DTD MAPPINGS//EN"
+   "http://dozer.sourceforge.net/dtd/dozerbeanmapping.dtd">
+<mappings>
+
+	<mapping>
+		<class-a>ar.com.osde.framework.services.crud.PageDTO</class-a>
+		<class-b>ar.com.osde.framework.persistence.dao.filter.Page</class-b>
+	</mapping>
+	
+	<mapping>
+		<class-a>ar.com.stk.dto.InvoiceDTO</class-a>
+		<class-b>ar.com.stk.common.entities.Invoice</class-b>
+	</mapping>
+	
+	<mapping>
+		<class-a>ar.com.stk.dto.InvoiceFilterDTO</class-a>
+		<class-b>ar.com.stk.backend.filter.InvoiceFilter</class-b>
+	</mapping>
+</mappings>
